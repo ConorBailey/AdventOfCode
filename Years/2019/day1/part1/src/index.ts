@@ -3,13 +3,15 @@ import * as fs from "fs";
 export function RocketEquation(inputFile: string): number {
   inputFile = "input.txt";
   let data = fs.readFileSync(inputFile, "utf-8");
-  let lines = data.split("\r\n").toString();
+  let lines = data.split("\r\n");
+  console.log(lines)
   let result = 0
   let line = 0
   for(let i = 0; i < lines.length; i++){
-    let line = parseInt(lines[i])
+    line = parseInt(lines[i],10)
     console.log(line)
-        result = result + (line / 2)
+        result = (line / 3) + result
+        result = Math.floor(result) - 2
   }
   console.log(result);
 
